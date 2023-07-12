@@ -1,0 +1,18 @@
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test-contracts-action:
+    runs-on: ubuntu-latest
+    name: test filecoin action
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          repository: hammertoe/filecoin-fvm-localnet
+      - id: localnet
+        uses: ./
+      - run: echo "Address:" ${{ steps.localnet.outputs.filAddress }}%  
