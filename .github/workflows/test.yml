@@ -9,14 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     name: test filecoin action
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          repository: hammertoe/filecoin-fvm-localnet
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - run: npm install
       - id: localnet
-        uses: ./
+        uses: hammertoe/filecoin-fvm-localnet
       - run: echo "Address:" ${{ steps.localnet.outputs.filAddress }}
