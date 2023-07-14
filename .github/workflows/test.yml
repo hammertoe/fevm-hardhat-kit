@@ -10,5 +10,5 @@ jobs:
     name: test filecoin action
     steps:
       - id: localnet
-        uses: hammertoe/filecoin-fvm-localnet@3a243be6915824bf1e4cddd30847a7a4ba8ad1d0
+        uses: hammertoe/filecoin-fvm-localnet@dist
       - run: echo "Address:" ${{ steps.localnet.outputs.filAddress }}
